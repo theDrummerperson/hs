@@ -1,19 +1,7 @@
-/* Reset universal margins and paddings */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-/* Apply Montserrat for headings */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', sans-serif;
-}
-
-/* Apply Lato for body text */
-body, p, li, a {
-  font-family: 'Lato', sans-serif;
-  overflow-x: hidden; /* Prevent horizontal scrolling */
+  box-sizing: border-box; 
 }
 
 body {
@@ -21,75 +9,88 @@ body {
   margin: 0;
   height: 100%;
   font-family: 'Lato', sans-serif;
-  color: #4e4e4e;
+  color: #4d4d4d;
 }
+
 
 h1, h2 {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat';
   text-shadow: 0 2px rgba(0, 0, 0, 0.5);
+  letter-spacing: 5px;
 }
 
 .row {
-  max-width: 100%; /* Take full width */
-  margin: 0; /* Remove margin */
-  border: 1px solid green
+  max-width: 80%;
+  margin: 0 auto;
 }
+
+p.bodytext {
+  text-align: left;
+  line-height: 1.8;
+  word-spacing: 10px;
+  box-sizing: border-box;
+}
+
 
 .intro-header {
-  position: relative; /* Allows parallax and proper layout */
-  height: 100vh; /* Full height of the viewport */
+  position: relative; 
+  height: 100vh; /* Adjust this value to your desired height */
   width: 100%;
-  display: flex; /* Center the content */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  background: #fcb016; /* Replace with your background color/image */
-}
-
-.intro-header .header-content img {
-  max-width: 100%; /* Make the image responsive */
-  height: auto; /* Maintain aspect ratio */
-  border: 1px solid red;
-}
-.intro-header img {
-  display: block; /* Ensure no extra space around the image */
-  margin: 0 auto;
-  max-width: 100%;
-  height: auto;
+  overflow: hidden;
+  z-index: 0; 
+  display: flex; /* Add this */
+  justify-content: center; /* Add this */
+  align-items: center; /* Add this */
 }
 
 
+
+  
+  background-size: cover; /* Fully cover the header area */
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 0; /* Below everything */
+}
+
+.intro-header .header-content {
+  position: relative;
+  text-align: center;
+  display: flex; /* Use flexbox for proper alignment */
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Fill the parent height */
+  z-index: 2; /* Content on top of the overlay */
+
+}
 
 .content {
-  background: #333;
-  border: 1px solid red;
-  color: #fff; /* Ensure readability */
-  padding: 20px;
-  margin-top: -4px; /* Adjust as needed to eliminate gaps */
+  height: 100vh;
+  padding: 50px;
+  background: #fcb016;
+  margin-top: 0;
+}
+
+.p.bodytext {
+  text-align: left;
+  line-height: 1.8;
+  word-spacing: 10px;
+  box-sizing: border-box;
+}
+.wrapper {overflow: auto;}
+
+#main {margin-left: 4px;}
+
+#leftsidebar {
+  float: none;
+  width: auto;
 }
 
 
 
-
-/* General Mobile Styles (For devices smaller than 768px) */
-@media (max-width: 768px) {
-  body {
-    font-size: 14px; /* Reduce base font size */
-  }
-
-  h1, h2 {
-    font-size: 1.5rem; /* Adjust heading sizes */
-    letter-spacing: 2px; /* Reduce spacing */
-  }
-
-  .row {
-    max-width: 90%; /* Narrow the container */
-  }
-
-  p.bodytext {
-    word-spacing: 5px;
-    line-height: 1.6;
-  }
+@media screen and (min-width: 480px) {
+  #leftsidebar {width: 200px; float: left;}
+  #main {margin-left: 216px;}
 
   .intro-header {
     height: 30vh; /* Reduce height of the header */
