@@ -24,3 +24,8 @@ function parallax() {
 $(window).scroll(function() {
   parallax();
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Your JavaScript code here
+});
