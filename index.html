@@ -83,15 +83,15 @@
     </div>
   </header>
   <script>
-    const btn = document.querySelector("button[aria-controls='mobile-menu']");
-    const menu = document.getElementById('mobile-menu');
+  const btn = document.querySelector("button[aria-controls='mobile-menu']");
+  const menu = document.getElementById('mobile-menu');
 
-    btn.addEventListener('click', () => {
-      const expanded = btn.getAttribute('aria-expanded') === 'true' || false;
-      btn.setAttribute('aria-expanded', !expanded);
-      menu.classList.toggle('hidden');
-    });
-  </script>
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true' || false;
+    btn.setAttribute('aria-expanded', !expanded);
+    menu.classList.toggle('hidden');
+  });
+</script>
   <script src="/index.js"></script>
 </body>
 </html>
