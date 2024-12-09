@@ -33,49 +33,43 @@ h1, h2 {
 .row {
   max-width: 100%; /* Take full width */
   margin: 0; /* Remove margin */
+  border: 1px solid green
 }
 
 .intro-header {
-  margin: 0;
-  padding: 0;
-  position: relative;
-  height: 100vh;
+  position: relative; /* Allows parallax and proper layout */
+  height: 100vh; /* Full height of the viewport */
   width: 100%;
-  display: table;
-  z-index: 1;
+  display: flex; /* Center the content */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  background: #fcb016; /* Replace with your background color/image */
 }
 
-.intro-header:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #fcb016;
-  z-index: 1;
+.intro-header .header-content img {
+  max-width: 100%; /* Make the image responsive */
+  height: auto; /* Maintain aspect ratio */
+  border: 1px solid red;
+}
+.intro-header img {
+  display: block; /* Ensure no extra space around the image */
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
 }
 
-.intro-header .header-content {
-  position: relative;
-  text-align: center;
-  display: table-cell;
-  vertical-align: middle;
-  z-index: 2;
-}
+
 
 .content {
-  height: 100vh;
-  padding: 50px;
   background: #333;
-  margin-top: 0; /* Adjust margin */
+  border: 1px solid red;
+  color: #fff; /* Ensure readability */
+  padding: 20px;
+  margin-top: -4px; /* Adjust as needed to eliminate gaps */
 }
 
-p.bodytext {
-  text-align: left;
-  line-height: 1.8;
-  word-spacing: 10px;
-}
+
+
 
 /* General Mobile Styles (For devices smaller than 768px) */
 @media (max-width: 768px) {
