@@ -41,8 +41,8 @@
           </div>
           <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div class="flex shrink-0 items-center">
-              <a href="https://www.holland-st.com">  
-                <img class="h-8 w-auto" src="https://www.holland-st.com/logox.png" alt="Holland Street">
+              <a href="https://www.holland-st.com">    
+                <img class="h-8 w-auto sm:h-10" src="https://www.holland-st.com/logox.png" alt="Holland Street">
               </a>
             </div>
             <div class="hidden sm:ml-6 sm:block">
@@ -68,11 +68,11 @@
         </div>
       </div>
     </nav>
-    <div class="flex shrink-0 items-center">
-  <a href="https://www.holland-st.com">    
-    <img class="h-8 w-auto sm:h-10" src="https://www.holland-st.com/logox.png" alt="Holland Street">
-  </a>
-</div>
+    <div class="intro-header relative w-full overflow-hidden flex justify-center items-center">
+      <div class="header-content relative flex justify-center items-center w-full z-2">
+        <video src="http://www.holland-st.com/B45.mp4" autoplay muted loop playsinline class="w-full object-cover">  
+        </video>  
+      </div>
     </div>
     <div class="content h-screen p-12 bg-[#fcb016]">
       <div class="row max-w-4xl mx-auto">
@@ -83,15 +83,15 @@
     </div>
   </header>
   <script>
-  const btn = document.querySelector("button[aria-controls='mobile-menu']");
-  const menu = document.getElementById('mobile-menu');
+    const btn = document.querySelector("button[aria-controls='mobile-menu']");
+    const menu = document.getElementById('mobile-menu');
 
-  btn.addEventListener('click', () => {
-    const expanded = btn.getAttribute('aria-expanded') === 'true' || false;
-    btn.setAttribute('aria-expanded', !expanded);
-    menu.classList.toggle('hidden');
-  });
-</script>
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true' || false;
+      btn.setAttribute('aria-expanded', !expanded);
+      menu.classList.toggle('hidden');
+    });
+  </script>
   <script src="/index.js"></script>
 </body>
 </html>
