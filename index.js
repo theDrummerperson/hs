@@ -1,6 +1,6 @@
 // index.js
 document.addEventListener('DOMContentLoaded', function () {
-    const parallaxElement = document.querySelector('.parallax-bg');
+    const parallaxElement = document.querySelector('.header-content');
     const elementHeight = parallaxElement.offsetHeight;
 
     function parallax() {
