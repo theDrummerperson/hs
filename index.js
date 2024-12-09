@@ -17,3 +17,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('scroll', parallax); 
 });
+
+
+function parallax() {
+    var scrollPos = $(window).scrollTop();
+    $('.parallax-bg').css({
+        'transform': 'translate3d(0, -' + (scrollPos / 40) + '%, 0)',
+        'opacity': 1 - (scrollPos / 2000),
+        '-webkit-filter': 'blur(' + Math.min(scrollPos / 100, 3) + 'px)'
+    });
+}
+
+$(window).scroll(parallax);
