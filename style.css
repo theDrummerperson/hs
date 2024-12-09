@@ -29,14 +29,13 @@ h1, h2 {
 }
 
 .intro-header {
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative; /* Change from fixed to relative to allow scrolling */
   height: 100vh;
   width: 100%;
   display: table;
-  z-index: 2;
+  z-index: 1; /* Lower z-index to avoid overshadowing other elements */
 }
+
 .intro-header:before {
   content: '';
   position: absolute;
