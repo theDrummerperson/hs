@@ -4,23 +4,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Apply Lato for body text */
-body,p, li, a {
+body, p, li, a {
     font-family: 'Lato', sans-serif;
-      overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
-
 
 body {
   padding: 0;
   margin: 0;
   height: 100%;
   font-family: 'Lato', sans-serif;
-  color: ##4e4e4e;
+  color: #4e4e4e;
 }
 
 h1, h2 {
   margin: 0;
-  font-family: 'Montserrat',;
+  font-family: 'Montserrat', sans-serif;
   text-shadow: 0 2px rgba(0, 0, 0, 0.5);
 }
 
@@ -64,18 +63,12 @@ h1, h2 {
   margin-top: 100vh;
 }
 
-.row {
-  max-width: 80%;
-  margin: 0 auto;
-}
-
 p.bodytext {
   text-align: left;
   line-height: 1.8;
   word-spacing: 10px;
   box-sizing: border-box;
 }
-
 
 /* General Mobile Styles (For devices smaller than 768px) */
 @media (max-width: 768px) {
@@ -101,39 +94,7 @@ p.bodytext {
     height: 30vh; /* Reduce height of the header */
   }
 
-  .intro-header .bg-image {
-    background-size: contain; /* Ensure it scales properly */
-    background-position: center;
-  }
-
   .content {
     padding: 20px;
   }
 }
-
-@media (max-width: 600px) { 
-  .intro-header {
-    height: 40vh; /* Even smaller for smaller phones */
-  }
-}
-
-/* For Very Small Devices (For devices smaller than 480px) */
-@media (max-width: 480px) {
-  h1, h2 {
-    font-size: 1.2rem;
-    text-shadow: none; /* Simplify text styling */
-  }
-
-  p.bodytext {
-    font-size: 0.9rem;
-    word-spacing: 3px;
-  }
-
-  .intro-header {
-    height: 50vh; /* Smaller header height */
-  }
-
-  .content {
-    padding: 15px;
-  }
-} 
