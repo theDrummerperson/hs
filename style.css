@@ -1,12 +1,19 @@
+/* Reset universal margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 /* Apply Montserrat for headings */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* Apply Lato for body text */
 body, p, li, a {
-    font-family: 'Lato', sans-serif;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+  font-family: 'Lato', sans-serif;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 body {
@@ -24,16 +31,18 @@ h1, h2 {
 }
 
 .row {
-  max-width: 80%;
-  margin: 0 auto;
+  max-width: 100%; /* Take full width */
+  margin: 0; /* Remove margin */
 }
 
 .intro-header {
-  position: relative; /* Change from fixed to relative to allow scrolling */
+  margin: 0;
+  padding: 0;
+  position: relative;
   height: 100vh;
   width: 100%;
   display: table;
-  z-index: 1; /* Lower z-index to avoid overshadowing other elements */
+  z-index: 1;
 }
 
 .intro-header:before {
@@ -43,7 +52,7 @@ h1, h2 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: ##fcb016;
+  background: #fcb016;
   z-index: 1;
 }
 
@@ -59,14 +68,13 @@ h1, h2 {
   height: 100vh;
   padding: 50px;
   background: #333;
-  margin-top: 100vh;
+  margin-top: 0; /* Adjust margin */
 }
 
 p.bodytext {
   text-align: left;
   line-height: 1.8;
   word-spacing: 10px;
-  box-sizing: border-box;
 }
 
 /* General Mobile Styles (For devices smaller than 768px) */
