@@ -46,13 +46,6 @@ p.bodytext {
 
 
 
-  
-  background-size: cover; /* Fully cover the header area */
-  background-repeat: no-repeat;
-  background-position: center;
-  z-index: 0; /* Below everything */
-}
-
 .intro-header .header-content {
   position: relative;
   text-align: center;
