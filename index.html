@@ -25,7 +25,7 @@
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 90%; /* Adjust width for reduced stretching */
+            width: 100%;
             height: 100%;
             object-fit: cover;
         }
@@ -40,16 +40,16 @@
                 ☰
             </button>
             <div class="hidden lg:flex space-x-6" id="nav-menu">
-                <a href="#home" class="text-white border border-white rounded-lg px-4 py-1 hover:bg-white hover:text-gray-800">Home</a>
-                <a href="#about" class="text-white border border-white rounded-lg px-4 py-1 hover:bg-white hover:text-gray-800">About</a>
-                <a href="#services" class="text-white border border-white rounded-lg px-4 py-1 hover:bg-white hover:text-gray-800">Services</a>
-                <a href="#contact" class="text-white border border-white rounded-lg px-4 py-1 hover:bg-white hover:text-gray-800">Contact</a>
+                <a href="#home" class="text-white font-lato bg-amber-400 border border-white rounded-lg px-4 py-1 hover:bg-amber-500">Home</a>
+                <a href="#about" class="text-white font-lato bg-amber-400 border border-white rounded-lg px-4 py-1 hover:bg-amber-500">About</a>
+                <a href="#services" class="text-white font-lato bg-amber-400 border border-white rounded-lg px-4 py-1 hover:bg-amber-500">Services</a>
+                <a href="#contact" class="text-white font-lato bg-amber-400 border border-white rounded-lg px-4 py-1 hover:bg-amber-500">Contact</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section with Video -->
-    <header id="home" class="parallax h-screen flex items-center justify-center">
+    <header id="home" class="parallax h-screen flex items-center justify-center px-4"> <!-- Added padding -->
         <div class="relative w-full h-full">
             <video class="parallax-video" autoplay loop muted playsinline>
                 <source src="https://www.holland-st.com/B45.mp4" type="video/mp4">
