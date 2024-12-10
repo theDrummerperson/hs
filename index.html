@@ -19,15 +19,18 @@
         .parallax {
             position: relative;
             overflow: hidden;
+            width: 100%;
+            height: 100vh; /* Full viewport height */
         }
+
         .parallax-video {
             position: absolute;
             top: 0;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: cover; /* Ensures the video covers the container */
+            z-index: -1; /* Sends the video behind other content */
         }
     </style>
 </head>
@@ -51,13 +54,11 @@
     </nav>
 
     <!-- Hero Section with Video -->
-    <header id="home" class="parallax h-screen flex items-center justify-center">
-        <div class="relative w-full h-full">
-            <video class="parallax-video" autoplay loop muted playsinline>
-                <source src="https://www.holland-st.com/B45.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
+    <header id="home" class="parallax flex items-center justify-center">
+        <video class="parallax-video" autoplay loop muted playsinline>
+            <source src="https://www.holland-st.com/B45.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
         <div class="relative text-center z-10">
             <h1 class="text-white text-5xl font-bold">Welcome to Our Website</h1>
             <p class="text-white text-lg mt-4">Experience the best with us.</p>
