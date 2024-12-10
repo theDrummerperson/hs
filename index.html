@@ -34,18 +34,6 @@
             object-fit: cover; /* Ensures the video covers the container */
             z-index: -1; /* Sends the video behind other content */
         }
-
-        /* Style for mobile navigation */
-        @media (max-width: 1024px) { 
-            #nav-menu {
-                flex-direction: column; 
-                align-items: center; 
-            }
-
-            #nav-menu a {
-                margin-bottom: 1rem; 
-            }
-        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -57,25 +45,24 @@
             <button class="block lg:hidden text-white focus:outline-none" id="nav-toggle" aria-label="Toggle navigation menu">
                 ☰
             </button>
-           <div class="hidden lg:flex space-x-6" id="nav-menu">
-    <a href="#mission" class="text-white font-lato hover:text-amber-500">Mission & Values</a>
-    <a href="#about" class="text-white font-lato hover:text-amber-500">Services</a>
-    <a href="#services" class="text-white font-lato hover:text-amber-500">Projects</a>
-<a href="#services" class="text-white font-lato hover:text-amber-500">Projects</a>
-    <a href="#contact" class="text-white font-lato bg-amber-500 border border-white rounded-lg px-4 py-1 hover:bg-amber-600">Contact</a>
-</div>
+            <div class="hidden lg:flex space-x-6" id="nav-menu">
+                <a href="#mission" class="text-white font-lato hover:text-amber-500">Mission & Values</a>
+                <a href="#about" class="text-white font-lato hover:text-amber-500">Services</a>
+                <a href="#services" class="text-white font-lato hover:text-amber-500">Projects</a>
+                <a href="#contact" class="text-white font-lato bg-amber-500 border border-white rounded-lg px-4 py-1 hover:bg-amber-600">Contact</a>
+            </div>
         </div>
     </nav>
 
- <header id="home" class="parallax flex items-center justify-center">
-    <video class="parallax-video" autoplay loop muted playsinline>
-        <source src="https://www.holland-st.com/B45.mp4" type="video/mp4">
-    </video>
-    <div class="absolute inset-x-0 bottom-20 text-center z-10"> 
-        <h1 class="text-amber-500 text-5xl font-bold">Onward to Equitable Futures</h1>
-        <a href="#about" class="mt-6 inline-block bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">Learn More</a>
-    </div>
-</header>
+    <header id="home" class="parallax flex items-center justify-center">
+        <video class="parallax-video" autoplay loop muted playsinline>
+            <source src="https://www.holland-st.com/B45.mp4" type="video/mp4">
+        </video>
+        <div class="absolute inset-x-0 bottom-20 text-center z-10"> 
+            <h1 class="text-amber-500 text-5xl font-bold">Onward to Equitable Futures</h1>
+            <a href="#about" class="mt-6 inline-block bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">Learn More</a>
+        </div>
+    </header>
 
     <section id="about" class="py-16 bg-white">
         <div class="container mx-auto text-center">
