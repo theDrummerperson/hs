@@ -29,14 +29,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensures the video covers the container */
+            object-fit: contain; /* Ensures the video covers the container */
             z-index: -1; /* Sends the video behind other content */
         }
     </style>
 </head>
-<body class="text-gray-800">
+<body class="text-gray-400">
     <!-- Navigation -->
-    <nav class="bg-amber-400 shadow-lg fixed w-full z-50">
+    <nav class="bg-gray-600 shadow-lg fixed w-full z-50">
         <div class="container mx-auto flex justify-between items-center p-10">
             <a href="http://www.holland-st.com">
                 <img src="http://www.holland-st.com/logox.png" alt="Holland Street Logo" class="h-6">
@@ -61,7 +61,7 @@
         </video>
         <div class="relative text-center z-10">
             <h1 class="text-white text-5xl font-bold">Onward to Equitable Futures</h1>
-            <p class="text-white text-lg mt-4">We Drive Small Businesses Forward</p>
+            <p class="text-white text-lg mt-4 font-bold">We Drive Small Businesses Forward</p>
             <a href="#about" class="mt-6 inline-block bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">Learn More</a>
         </div>
     </header>
