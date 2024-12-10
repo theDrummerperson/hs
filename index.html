@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,57 +15,40 @@
         h1, h2, h3 {
             font-family: 'Montserrat', sans-serif;
         }
-
-        /* Custom styles for parallax effect */
-        .parallax {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            height: 100vh; /* Full viewport height */
-            background-color: white;     
-        }
-
-        .parallax-video {
-            position: absolute;
-            top: 10vh;
-            left: 10px;
-            right: 10px;
-            width: calc(100% - 20px); 
-            height: 100%;
-            object-fit: cover; /* Ensures the video covers the container */
-            z-index: -1; /* Sends the video behind other content */
-        }
     </style>
 </head>
+
 <body class="text-gray-800">
+    <!-- Navigation -->
     <nav class="bg-gray-800 shadow-lg fixed w-full z-50">
         <div class="container mx-auto flex justify-between items-center p-4">
             <a href="http://www.holland-st.com">
-                <img src="http://www.holland-st.com/logox.png" alt="Holland Street Logo" class="h-16"> 
+                <img src="http://www.holland-st.com/logox.png" alt="Holland Street Logo" class="h-12">
             </a>
             <button class="block lg:hidden text-white focus:outline-none" id="nav-toggle" aria-label="Toggle navigation menu">
                 ☰
             </button>
-            <div class="hidden lg:flex space-x-6" id="nav-menu">
-                <a href="#mission" class="text-white font-lato hover:text-amber-500">Mission & Values</a>
-                <a href="#about" class="text-white font-lato hover:text-amber-500">Services</a>
-                <a href="#services" class="text-white font-lato hover:text-amber-500">Projects</a>
-                     <a href="#services" class="text-white font-lato hover:text-amber-500">Clients</a>
-                <a href="#contact" class="text-white font-lato bg-amber-500 border border-white rounded-lg px-4 py-1 hover:bg-amber-600">Contact</a>
+            <div class="hidden lg:flex lg:space-x-6" id="nav-menu">
+                <a href="#mission" class="text-black font-lato px-4 py-2">Mission & Values</a>
+                <a href="#about" class="text-black font-lato px-4 py-2">Services</a>
+                <a href="#services" class="text-black font-lato px-4 py-2">Projects</a>
+                <a href="#contact" class="text-white font-lato bg-amber-500 rounded-lg px-4 py-2">Contact</a>
             </div>
         </div>
     </nav>
 
+    <!-- Hero Section with Video -->
     <header id="home" class="parallax flex items-center justify-center">
         <video class="parallax-video" autoplay loop muted playsinline>
             <source src="https://www.holland-st.com/B45.mp4" type="video/mp4">
         </video>
-        <div class="absolute inset-x-0 bottom-20 text-center z-10"> 
+        <div class="absolute inset-x-0 bottom-20 text-center z-10">
             <h1 class="text-amber-500 text-5xl font-bold">Onward to Equitable Futures</h1>
             <a href="#about" class="mt-6 inline-block bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">Learn More</a>
         </div>
     </header>
 
+    <!-- Content Sections -->
     <section id="about" class="py-16 bg-white">
         <div class="container mx-auto text-center">
             <h2 class="text-3xl font-bold mb-4">Mission & Values</h2>
@@ -86,43 +70,27 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="bg-gray-800 text-white py-6">
         <div class="container mx-auto text-center">
             <p>&copy; 2024 Holland Street. All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script>
         // Navigation toggle for mobile view
         document.getElementById('nav-toggle').addEventListener('click', () => {
             const menu = document.getElementById('nav-menu');
-            menu.classList.toggle('hidden');
-        });
-
-        // Parallax effect
-        document.addEventListener('DOMContentLoaded', function () {
-            const parallaxElement = document.querySelector('.parallax');
-
-            if (!parallaxElement) {
-                console.error('Parallax element not found');
-                return;
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex', 'flex-col', 'space-y-4', 'p-4'); // Adjust classes for vertical layout
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex', 'flex-col', 'space-y-4', 'p-4');
             }
-
-            const elementHeight = parallaxElement.offsetHeight;
-
-            function parallax() {
-                const scrollPos = window.scrollY || window.pageYOffset;
-                const transformValue = scrollPos / 40;
-                const opacityValue = Math.max(1 - scrollPos / 2000, 0);
-
-                if (scrollPos < elementHeight) {
-                    parallaxElement.style.transform = `translate3d(0, -${transformValue}%, 0)`;
-                    parallaxElement.style.opacity = opacityValue;
-                }
-            }
-
-            window.addEventListener('scroll', parallax);
         });
     </script>
 </body>
+
 </html>
