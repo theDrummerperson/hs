@@ -34,28 +34,38 @@
             object-fit: cover; /* Ensures the video covers the container */
             z-index: -1; /* Sends the video behind other content */
         }
+
+        /* Style for mobile navigation */
+        @media (max-width: 1024px) { 
+            #nav-menu {
+                flex-direction: column; 
+                align-items: center; 
+            }
+
+            #nav-menu a {
+                margin-bottom: 1rem; 
+            }
+        }
     </style>
 </head>
 <body class="text-gray-800">
-    <!-- Navigation -->
     <nav class="bg-gray-800 shadow-lg fixed w-full z-50">
         <div class="container mx-auto flex justify-between items-center p-4">
             <a href="http://www.holland-st.com">
-                <img src="http://www.holland-st.com/logox.png" alt="Holland Street Logo" class="h-8">
+                <img src="http://www.holland-st.com/logox.png" alt="Holland Street Logo" class="h-16"> 
             </a>
             <button class="block lg:hidden text-black focus:outline-none" id="nav-toggle" aria-label="Toggle navigation menu">
                 ☰
             </button>
            <div class="hidden lg:flex space-x-6" id="nav-menu">
-    <a href="#mission" class="text-white font-lato bg-amber-500 border border-white rounded-lg px-4 py-1 hover:bg-amber-600">Mission & Values</a>
-    <a href="#about" class="text-white font-lato bg-amber-500 border border-white rounded-lg px-4 py-1 hover:bg-amber-600">Services</a>
-    <a href="#services" class="text-white font-lato bg-amber-500 border border-white rounded-lg px-4 py-1 hover:bg-amber-600">Projects</a>
+    <a href="#mission" class="text-white font-lato hover:text-amber-500">Mission & Values</a>
+    <a href="#about" class="text-white font-lato hover:text-amber-500">Services</a>
+    <a href="#services" class="text-white font-lato hover:text-amber-500">Projects</a>
     <a href="#contact" class="text-white font-lato bg-amber-500 border border-white rounded-lg px-4 py-1 hover:bg-amber-600">Contact</a>
 </div>
         </div>
     </nav>
 
-    <!-- Hero Section with Video -->
     <header id="home" class="parallax flex items-center justify-center">
         <video class="parallax-video" autoplay loop muted playsinline>
             <source src="https://www.holland-st.com/B45.mp4" type="video/mp4">
@@ -68,7 +78,6 @@
         </div>
     </header>
 
-    <!-- Content Sections -->
     <section id="about" class="py-16 bg-white">
         <div class="container mx-auto text-center">
             <h2 class="text-3xl font-bold mb-4">Mission & Values</h2>
@@ -90,14 +99,12 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-gray-800 text-white py-6">
         <div class="container mx-auto text-center">
             <p>&copy; 2024 Holland Street. All Rights Reserved.</p>
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script>
         // Navigation toggle for mobile view
         document.getElementById('nav-toggle').addEventListener('click', () => {
