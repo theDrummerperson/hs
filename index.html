@@ -28,7 +28,7 @@
             top: 0;
             left: 10px;
             right: 10px;
-            width: 100%;
+            width: calc(100% - 20px); 
             height: 100%;
             object-fit: cover; /* Ensures the video covers the container */
             z-index: -1; /* Sends the video behind other content */
@@ -37,7 +37,7 @@
 </head>
 <body class="text-gray-800">
     <!-- Navigation -->
-    <nav class="bg-gray-600 shadow-lg fixed w-full z-50">
+    <nav class="bg-gray-800 shadow-lg fixed w-full z-50">
         <div class="container mx-auto flex justify-between items-center p-10">
             <a href="http://www.holland-st.com">
                 <img src="http://www.holland-st.com/logox.png" alt="Holland Street Logo" class="h-6">
@@ -68,7 +68,7 @@
     </header>
 
     <!-- Content Sections -->
-    <section id="about" class="py-16 bg-white">
+    <section id="about" class="py-16 bg-amber-500">
         <div class="container mx-auto text-center">
             <h2 class="text-3xl font-bold mb-4">About Us</h2>
             <p class="text-gray-700">We are committed to delivering exceptional service and unparalleled experiences.</p>
