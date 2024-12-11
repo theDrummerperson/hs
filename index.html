@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,37 +45,34 @@
       #nav-menu {
         flex-direction: column;
         align-items: center;
-        background-color: rgba(0, 0, 0, 0.8);
-        /* Example background */
-        padding-top: 2rem; /* Add top padding for the logo */
+        background-color: #222; /* Updated background color */
+        padding-top: 2rem;
+        text-align: center; /* Center text within the menu */
       }
 
       #nav-menu a {
         margin-bottom: 1.5rem;
-        /* Adjusted spacing */
         font-size: 1.1rem;
-        /* Slightly larger font */
         display: block;
         padding: 0.5rem 1rem;
-        /* Add padding for touch targets */
-
+        color: white; /* Consistent text color */
+        
+        /* Removed button styling for consistency */ 
         &:hover {
           background-color: #333;
-          /* Example hover effect */
         }
       }
 
       #nav-toggle {
-        /* Style the hamburger icon */
         font-size: 1.5rem;
 
-        /* Example of a visual cue when the menu is open */
         &.open {
-          display: none; /* Hide the toggle when open */
+          display: none;
         }
       }
-      .mobile-nav-logo { /* Style for the logo in mobile nav */
-        margin-bottom: 2rem; /* Add space below the logo */
+
+      .mobile-nav-logo {
+        margin-bottom: 2rem;
       }
     }
   </style>
@@ -87,16 +83,55 @@
     <div class="container mx-auto flex justify-between items-center p-4">
       <button class="block lg:hidden text-white focus:outline-none" id="nav-toggle" aria-label="Toggle navigation menu">
         ☰
-      </button> 
+      </button>
       <div class="hidden lg:flex flex-col lg:flex-row lg:space-x-6 w-full" id="nav-menu">
-        <a href="http://www.holland-st.com" class="mobile-nav-logo"> <img src="http://www.holland-st.com/logox.png" alt="Holland Street Logo" class="h-16 mx-auto lg:mx-0"> </a>
+        <a href="http://www.holland-st.com" class="mobile-nav-logo">
+          <img src="http://www.holland-st.com/logox.png" alt="Holland Street Logo" class="h-16 mx-auto lg:mx-0">
+        </a>
         <a href="#mission" class="text-white font-lato hover:text-amber-500">Mission & Values</a>
         <a href="#services" class="text-white font-lato hover:text-amber-500">Projects</a>
         <a href="#clients" class="text-white font-lato hover:text-amber-500">Clients</a>
-        <a href="#contact" class="text-white font-lato bg-amber-500 border border-white rounded-lg px-4 py-1 hover:bg-amber-600">Contact</a>
+        <a href="#contact" class="text-white font-lato hover:text-amber-500">Contact</a> 
       </div>
     </div>
   </nav>
+
+  <header id="home" class="parallax flex items-center justify-center">
+    <video class="parallax-video" autoplay loop muted playsinline>
+      <source src="https://www.holland-st.com/B45.mp4" type="video/mp4">
+    </video>
+    <div class="absolute inset-x-0 bottom-20 text-center z-10">
+      <h1 class="text-amber-500 text-5xl font-bold">Onward to Equitable Futures</h1>
+      <a href="#about" class="mt-6 inline-block bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">Learn More</a>
+    </div>
+  </header>
+
+  <section id="about" class="py-16 bg-white">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4">Mission & Values</h2>
+      <p class="text-gray-700">We are committed to delivering exceptional service and unparalleled experiences.</p>
+    </div>
+  </section>
+
+  <section id="services" class="py-16 bg-white">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4">Our Services</h2>
+      <p class="text-gray-700">Discover our wide range of services designed to meet your needs.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="py-16 bg-white">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
+      <p class="text-gray-700">We'd love to hear from you. Get in touch today.</p>
+    </div>
+  </section>
+
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 Holland Street. All Rights Reserved.</p>
+    </div>
+  </footer>
 
   <script>
     // Navigation toggle for mobile view
@@ -111,12 +146,6 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
 
 
 
