@@ -15,34 +15,78 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-        /* Custom styles for parallax effect */
         .parallax {
             position: relative;
             overflow: hidden;
             width: 100%;
-            height: 100vh; /* Full viewport height */
-            background-color: white;                
+            height: 100vh;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .parallax-video {
             position: absolute;
-            top: 10vh;
-            left: 10px;
-            right: 10px;
-            width: calc(100% - 20px); 
+            top: 0;
+            left: 0;
+            width: 100%;
             height: 100%;
-            object-fit: cover; /* Ensures the video covers the container */
-            z-index: -1; /* Sends the video behind other content */
+            object-fit: cover;
+            z-index: -1;
         }
 
-        /* Gold background color for the menu */
-        .bg-gold {
-            background-color: #D4AF37; /* Replace if needed */
+        .hero-content {
+            text-align: center; 
+            position: relative; 
+            z-index: 2; 
         }
+
+        .bg-gold {
+            background-color: #D4AF37;
+        }
+
+        /* Added for the glowing effect */
+        .glow-button {
+            box-shadow: 0 0 10px rgba(252, 176, 22, 0.5); 
+            transition: box-shadow 0.3s ease; 
+        }
+
+        .glow-button:hover {
+            box-shadow: 0 0 20px rgba(252, 176, 22, 0.8);
+        }
+
+        /* Added for the underline effect */
+        .nav-link {
+            position: relative; 
+            transition: color 0.3s ease; 
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; 
+            left: 0;
+            width: 0;
+            height: 2px; 
+            background-color: #fcb016; 
+            transition: width 0.3s ease; 
+        }
+
+        .nav-link:hover::after {
+            width: 100%; 
+        }
+
+        @media (max-width: 768px) { 
+            .parallax-video {
+                object-position: center; 
+            }
+        }
+
     </style>
 </head>
 <body class="text-gray-800">
-    <header class="bg-white p-4 flex items-center justify-between fixed w-full z-50"> 
+    <header class="bg-white/80 p-4 flex items-center justify-between fixed w-full z-50 backdrop-blur-md transition-colors duration-300"> 
         <button id="menu-button" class="text-gray-600">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
@@ -65,41 +109,60 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>
-            <a href="#mission" class="text-white text-lg font-medium mb-4 block">Mission & Values ></a>
-            <a href="#about" class="text-white text-lg font-medium mb-4 block">Services ></a>
-            <a href="#services" class="text-white text-lg font-medium mb-4 block">Projects</a>
-            <a href="#contact" class="text-white text-lg font-medium mb-4 block">Contact</a> 
+            <a href="#mission" class="text-white text-lg font-medium mb-4 block nav-link">Mission & Values</a>
+            <a href="#about" class="text-white text-lg font-medium mb-4 block nav-link">Services</a>
+            <a href="#services" class="text-white text-lg font-medium mb-4 block nav-link">Projects</a>
+            <a href="#contact" class="text-white text-lg font-medium mb-4 block nav-link">Contact</a> 
         </div>
     </div>
 
-    <header id="home" class="parallax flex items-center justify-center">
-        <video class="parallax-video" autoplay loop muted playsinline>
+    <div class="parallax">
+        <video class="parallax-video" autoplay loop muted playsinline poster="placeholder-image.jpg">
             <source src="https://www.holland-st.com/B45.mp4" type="video/mp4">
         </video>
-        <div class="absolute inset-x-0 bottom-20 text-center z-10"> 
-            <h1 class="text-amber-500 text-5xl font-bold">Onward to Equitable Futures</h1>
-            <a href="#about" class="mt-6 inline-block bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">Learn More</a>
+        <div class="hero-content"> 
+            <h1 class="text-amber-500 text-5xl md:text-7xl font-bold">Onward to Equitable Futures</h1>
+            <a href="#about" class="mt-6 inline-block bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 glow-button">Learn More</a>
         </div>
-    </header>
+    </div>
 
-    <section id="about" class="py-16 bg-white">
+    <section id="mission" class="py-16 bg-white">
         <div class="container mx-auto text-center">
             <h2 class="text-3xl font-bold mb-4">Mission & Values</h2>
             <p class="text-gray-700">We are committed to delivering exceptional service and unparalleled experiences.</p>
+            <div class="mt-8"> 
+                <a href="#about" class="inline-block bg-amber-500 text-white px-6 py-2 rounded hover:bg-amber-600">Learn More About Our Mission</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 bg-gray-100">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold mb-4">Our Services</h2>
+            <p class="text-gray-700">Discover our wide range of services designed to meet your needs.</p>
+            <div class="mt-8">
+                <a href="#services" class="inline-block bg-amber-500 text-white px-6 py-2 rounded hover:bg-amber-600">Explore Our Services</a>
+            </div>
         </div>
     </section>
 
     <section id="services" class="py-16 bg-white">
         <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-4">Our Services</h2>
-            <p class="text-gray-700">Discover our wide range of services designed to meet your needs.</p>
+            <h2 class="text-3xl font-bold mb-4">Our Projects</h2>
+            <p class="text-gray-700">See some of our successful projects.</p>
+            <div class="mt-8">
+                <a href="#contact" class="inline-block bg-amber-500 text-white px-6 py-2 rounded hover:bg-amber-600">Get in Touch</a>
+            </div>
         </div>
     </section>
 
-    <section id="contact" class="py-16 bg-white">
+    <section id="contact" class="py-16 bg-gray-100">
         <div class="container mx-auto text-center">
             <h2 class="text-3xl font-bold mb-4">Contact Us</h2>
-            <p class="text-gray-700">We'd love to hear from you. Get in touch today.</p>
+            <p class="text-gray-700">We'd love to hear from you.</p>
+            <div class="mt-8">
+                <a href="#" class="inline-block bg-amber-500 text-white px-6 py-2 rounded hover:bg-amber-600">Contact Us Today</a>
+            </div>
         </div>
     </section>
 
@@ -110,10 +173,10 @@
     </footer>
 
     <script>
-        // Navigation toggle for mobile view (updated for new menu)
         const menuButton = document.getElementById('menu-button');
         const closeMenuButton = document.getElementById('close-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
+        const header = document.querySelector('header');
 
         menuButton.addEventListener('click', () => {
             mobileMenu.classList.remove('hidden');
@@ -123,8 +186,16 @@
             mobileMenu.classList.add('hidden');
         });
 
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 0) {
+                header.classList.remove('bg-white/80');
+                header.classList.add('bg-white');
+            } else {
+                header.classList.add('bg-white/80');
+                header.classList.remove('bg-white');
+            }
+        });
 
-        // Parallax effect
         document.addEventListener('DOMContentLoaded', function () {
             const parallaxElement = document.querySelector('.parallax');
 
@@ -151,11 +222,6 @@
     </script>
 </body>
 </html>
-
-
-
-
-
 
 
 
