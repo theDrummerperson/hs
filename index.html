@@ -24,6 +24,7 @@
       align-items: center;
       justify-content: center;
       background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), #000;
+      will-change: transform;
     }
 
     .parallax-video {
@@ -84,6 +85,31 @@
       opacity: 1;
       transition: opacity 0.3s ease;
     }
+
+    .mobile-menu-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+
+    .mobile-menu-item {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .mobile-menu-item svg {
+      height: 1.25rem;
+      width: 1.25rem;
+      stroke: #ffffff;
+    }
   </style>
 </head>
 
@@ -106,16 +132,19 @@
   </header>
 
   <div id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-gold z-50">
-    <div class="p-6 flex flex-col items-end">
+    <div class="p-6 flex flex-col items-center">
       <button id="close-menu-button" class="text-white text-xl mb-6">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
-      <a href="#mission" class="text-white text-lg font-medium mb-4 block nav-link">Mission & Values</a>
-      <a href="#about" class="text-white text-lg font-medium mb-4 block nav-link">Services</a>
-      <a href="#services" class="text-white text-lg font-medium mb-4 block nav-link">Projects</a>
-      <a href="#contact" class="text-white text-lg font-medium mb-4 block nav-link">Contact</a>
+      <div class="mobile-menu-content">
+        <a href="#mission" class="mobile-menu-item">OUR PROGRAMS <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+        <a href="#about" class="mobile-menu-item">ABOUT <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+        <a href="#services" class="mobile-menu-item">WHY PARAMOUNT? <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+        <a href="#contact" class="mobile-menu-item">WORKSPACES <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+        <a href="#contact" class="mobile-menu-item">CONTACT <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+      </div>
     </div>
   </div>
 
@@ -159,6 +188,15 @@
       mobileMenu.classList.add('hidden');
       mobileMenu.classList.remove('active');
     });
+
+    window.addEventListener('scroll', () => {
+      const parallax = document.querySelector('.parallax');
+      const scrollY = window.scrollY;
+      if (parallax) {
+        parallax.style.transform = `translateY(${scrollY * 0.5}px)`;
+      }
+    });
   </script>
 </body>
 </html>
+
