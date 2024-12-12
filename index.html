@@ -1,263 +1,104 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Holland Street: Research and Design</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Lato', sans-serif;
-    }
+<style>
+  body {
+    font-family: 'Lato', sans-serif;
+    background-color: white;
+    color: #4e4e4e;
+  }
 
-    h1, h2, h3 {
-      font-family: 'Montserrat', sans-serif;
-    }
+  h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+  }
 
-    .parallax {
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-      height: 100vh;
-      background-color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      perspective: 1px; /* For improved parallax effect */
-    }
 
-    .parallax-video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-    }
 
-    .hero-content {
-      text-align: center;
-      position: relative;
-      z-index: 2;
-    }
+  .hero-content h1 {
+    color: white;
+    text-shadow: 2px 2px 5px rgba(78, 78, 78, 0.8);
+  }
 
-    .hero-content h1 {
-      color: #fff;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-      animation: fadeInDown 1.5s ease;
-    }
+  .glow-button {
+    background-color: #fcb016;
+    color: white;
+    box-shadow: 0 0 20px rgba(252, 176, 22, 0.7);
+    border: none;
+  }
 
-    .glow-button {
-      box-shadow: 0 0 20px rgba(0, 136, 255, 0.7);
-      transition: box-shadow 0.3s ease;
-    }
+  .glow-button:hover {
+    background-color: #fcb016;
+    box-shadow: 0 0 30px rgba(252, 176, 22, 1);
+  }
 
-    .glow-button:hover {
-      animation: pulse 1s infinite;
-    }
+  #mobile-menu {
+    background-color: #4e4e4e;
+  }
 
-    @keyframes pulse {
-      0%, 100% {
-        box-shadow: 0 0 20px rgba(0, 136, 255, 0.7);
-      }
-      50% {
-        box-shadow: 0 0 30px rgba(0, 136, 255, 1);
-      }
-    }
+  #mobile-menu .mobile-menu-item {
+    color: white;
+  }
 
-    #mobile-menu {
-      transform: translateX(100%);
-      transition: transform 0.3s ease-in-out;
-      background-color: #fcb016;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+  #mobile-menu .mobile-menu-item svg {
+    stroke: white;
+  }
 
-    #mobile-menu.active {
-      transform: translateX(0);
-    }
+  header {
+    background-color: white;
+    color: #4e4e4e;
+  }
 
-    footer p {
-      opacity: 0.8;
-    }
+  header a {
+    color: #4e4e4e;
+  }
 
-    footer p:hover {
-      opacity: 1;
-      transition: opacity 0.3s ease;
-    }
+  header a:hover {
+    color: #fcb016;
+  }
 
-    .mobile-menu-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1.5rem;
-    }
+  .mobile-menu-item {
+    color: white;
+  }
 
-    .mobile-menu-item {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #ffffff;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-    }
+  footer {
+    background-color: #4e4e4e;
+    color: white;
+  }
 
-    .mobile-menu-item svg {
-      height: 1.25rem;
-      width: 1.25rem;
-      stroke: #ffffff;
-    }
+  footer p:hover {
+    color: #fcb016;
+  }
 
-    body.menu-open {
-      overflow: hidden;
-      /* Prevent scrolling when mobile menu is open */
-    }
+  .bg-amber-500 {
+    background-color: #fcb016 !important;
+  }
 
-    body.menu-open > *:not(#mobile-menu) {
-      display: none;
-      /* Hide other elements when mobile menu is open */
-    }
-  </style>
-</head>
+  .bg-amber-600:hover {
+    background-color: #d89d13 !important;
+  }
 
-<body class="text-white">
-  <header class="p-4 flex items-center justify-between fixed w-full z-50 backdrop-blur-md transition-colors duration-300 bg-white">
-    <button id="menu-button" class="text-gray-800 lg:hidden">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-      </svg>
-    </button>
-    <a href="http://www.holland-st.com">
-      <img src="http://www.holland-st.com/logoj.png" alt="Holland Street Logo" class="h-16">
-    </a>
-    <div class="hidden lg:flex lg:space-x-8">
-      <a href="#mission" class="text-gray-800 font-lato hover:text-amber-500 nav-link">About</a>
-      <a href="#about" class="text-gray-800 font-lato hover:text-amber-500 nav-link">Services</a>
-      <a href="#services" class="text-gray-800 font-lato hover:text-amber-500 nav-link">Projects</a>
-      <a href="#services" class="text-gray-800 font-lato hover:text-amber-500 nav-link">Clients</a>
-      <a href="#contact" class="text-gray-800 font-lato bg-amber-500 border border-white rounded-lg px-4 py-1 hover:bg-amber-600">Contact</a>
-    </div>
-  </header>
+  .bg-gray-800 {
+    background-color: #4e4e4e !important;
+  }
 
-  <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full z-50">
-    <div class="p-6 flex flex-col items-center">
-      <button id="close-menu-button" class="text-white text-xl mb-6">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-      <div class="mobile-menu-content">
-        <a href="#mission" class="mobile-menu-item">ABOUT
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </a>
-        <a href="#about" class="mobile-menu-item">SERVICES
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </a>
-        <a href="#services" class="mobile-menu-item">PROJECTS
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </a>
-        <a href="#contact" class="mobile-menu-item">CLIENTS
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </a>
-        <a href="#contact" class="mobile-menu-item">CONTACT
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-          </svg>
-        </a>
-      </div>
-    </div>
-  </div>
+  .text-gray-800 {
+    color: #4e4e4e !important;
+  }
 
- <!-- https://gist.github.com/goodreds/3d044027175954984fb96c7407a955ab -->
+  .text-amber-500 {
+    color: #fcb016 !important;
+  }
 
-<!-- Container -->
-<div class="relative flex flex-col items-center mx-auto lg:flex-row-reverse lg:max-w-5xl lg:mt-12 xl:max-w-6xl">
+  .text-gray-100 {
+    color: white !important;
+  }
 
-    <!-- Image Column -->
-    <div class="w-full h-64 lg:w-1/2 lg:h-auto">
-        <img class="h-full w-full object-cover" src="https://picsum.photos/id/1018/2000" alt="Winding mountain road">
-    </div>
-    <!-- Close Image Column -->
+  .border-gray-600 {
+    border-color: #4e4e4e !important;
+  }
 
-    <!-- Text Column -->
-    <div
-        class="max-w-lg bg-white md:max-w-2xl md:z-10 md:shadow-lg md:absolute md:top-0 md:mt-48 lg:w-3/5 lg:left-0 lg:mt-20 lg:ml-20 xl:mt-24 xl:ml-12">
-        <!-- Text Wrapper -->
-        <div class="flex flex-col p-12 md:px-16">
-            <h2 class="text-2xl font-medium uppercase text-green-800 lg:text-4xl">Winding Mountain Road</h2>
-            <p class="mt-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat.
-            </p>
-            <!-- Button Container -->
-            <div class="mt-8">
-                <a href="#"
-                    class="inline-block w-full text-center text-lg font-medium text-gray-100 bg-green-600 border-solid border-2 border-gray-600 py-4 px-10 hover:bg-green-800 hover:shadow-md md:w-48">Read
-                    More</a>
-            </div>
-        </div>
-        <!-- Close Text Wrapper -->
-    </div>
-    <!-- Close Text Column -->
+  .hover\:bg-green-800:hover {
+    background-color: #4e4e4e !important;
+  }
 
-</div>
-  
-  <section id="mission" class="py-16 bg-white">
-    <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-4">Mission & Values</h2>
-      <p class="text-gray-700">We are committed to delivering exceptional service and unparalleled experiences.</p>
-      <div class="mt-8">
-        <a href="#about" class="inline-block bg-amber-500 text-white px-6 py-2 rounded hover:bg-amber-600">Learn More About Our Mission</a>
-      </div>
-    </div>
-  </section>
-
-  <div id="root"></div>
-
-  <footer class="bg-gray-800 text-white py-6">
-    <div class="container mx-auto text-center">
-      <p>&copy; 2024 Holland Street. All Rights Reserved.</p>
-    </div>
-  </footer>
-
-  <script>
-    const menuButton = document.getElementById('menu-button');
-    const closeMenuButton = document.getElementById('close-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    menuButton.addEventListener('click', () => {
-      mobileMenu.classList.remove('hidden');
-      mobileMenu.classList.add('active');
-      document.body.classList.add('menu-open');
-    });
-
-    closeMenuButton.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      mobileMenu.classList.remove('active');
-      document.body.classList.remove('menu-open');
-    });
-
-    window.addEventListener('scroll', () => {
-      const parallax = document.querySelector('.parallax');
-      const scrollY = window.scrollY;
-      if (parallax) {
-        parallax.style.backgroundPositionY = `${scrollY * 0.5}px`; // Adjust for smoother effect
-      }
-    });
-  </script>
-</body>
-</html>
+  .text-green-800 {
+    color: #4e4e4e !important;
+  }
+</style>
