@@ -15,29 +15,7 @@
       font-family: 'Montserrat', sans-serif;
     }
 
-    .parallax {
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), #000;
-      will-change: transform;
-    }
-
-    .parallax-video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -1;
-      filter: brightness(70%);
-    }
-
+  
     .hero-content {
       text-align: center;
       position: relative;
@@ -160,24 +138,58 @@
     </div>
   </div>
 
-  <div class="parallax">
-    <video class="parallax-video" autoplay loop muted playsinline poster="placeholder-image.jpg">
-      <source src="https://www.holland-st.com/B45.mp4" type="video/mp4">
-    </video>
-    <div class="hero-content">
-      <h1 class="text-amber-500 text-5xl md:text-7xl font-bold">Onward to Equitable Futures</h1>
-      <a href="#about" class="mt-6 inline-block bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 glow-button">Learn More</a>
-    </div>
-  </div>
+  <!-- Container -->
+<div class="relative flex flex-col items-center mx-auto lg:flex-row-reverse lg:max-w-5xl lg:mt-12 xl:max-w-6xl">
 
-  <section id="mission" class="py-16 bg-white">
-    <div class="container mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-4">Mission & Values</h2>
-      <p class="text-gray-700">We are committed to delivering exceptional service and unparalleled experiences.</p>
-      <div class="mt-8">
-        <a href="#about" class="inline-block bg-amber-500 text-white px-6 py-2 rounded hover:bg-amber-600">Learn More About Our Mission</a>
-      </div>
+    <!-- Image Column -->
+    <div class="w-full h-64 lg:w-1/2 lg:h-auto">
+        <img class="h-full w-full object-cover" src="https://picsum.photos/id/1018/2000" alt="Winding mountain road">
     </div>
+    <!-- Close Image Column -->
+
+    <!-- Text Column -->
+    <div
+        class="max-w-lg bg-white md:max-w-2xl md:z-10 md:shadow-lg md:absolute md:top-0 md:mt-48 lg:w-3/5 lg:left-0 lg:mt-20 lg:ml-20 xl:mt-24 xl:ml-12">
+        <!-- Text Wrapper -->
+        <div class="flex flex-col p-12 md:px-16">
+            <h2 class="text-2xl font-medium uppercase text-green-800 lg:text-4xl">Winding Mountain Road</h2>
+            <p class="mt-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat.
+            </p>
+            <!-- Button Container -->
+            <div class="mt-8">
+                <a href="#"
+                    class="inline-block w-full text-center text-lg font-medium text-gray-100 bg-green-600 border-solid border-2 border-gray-600 py-4 px-10 hover:bg-green-800 hover:shadow-md md:w-48">Read
+                    More</a>
+            </div>
+        </div>
+        <!-- Close Text Wrapper -->
+    </div>
+    <!-- Close Text Column -->
+
+</div>
+  <section>
+   <div class="sm:flex items-center max-w-screen-xl">
+    <div class="sm:w-1/2 p-10">
+        <div class="image object-center text-center">
+            <img src="https://i.imgur.com/WbQnbas.png">
+        </div>
+    </div>
+    <div class="sm:w-1/2 p-5">
+        <div class="text">
+            <span class="text-gray-500 border-b-2 border-indigo-600 uppercase">About us</span>
+            <h2 class="my-4 font-bold text-3xl  sm:text-4xl ">About <span class="text-indigo-600">Our Company</span>
+            </h2>
+            <p class="text-gray-700">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, commodi
+                doloremque, fugiat illum magni minus nisi nulla numquam obcaecati placeat quia, repellat tempore
+                voluptatum.
+            </p>
+        </div>
+    </div>
+</div>
   </section>
 
   <footer class="bg-gray-800 text-white py-6">
