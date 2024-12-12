@@ -20,11 +20,11 @@
       overflow: hidden;
       width: 100%;
       height: 100vh;
+      background-color: white;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), #000;
-      will-change: transform;
+      perspective: 1px; /* For improved parallax effect */
     }
 
     .parallax-video {
@@ -35,7 +35,6 @@
       height: 100%;
       object-fit: cover;
       z-index: -1;
-      filter: brightness(70%);
     }
 
     .hero-content {
@@ -116,11 +115,12 @@
 
     body.menu-open {
       overflow: hidden;
-      background-color: #fcb016;
+      /* Prevent scrolling when mobile menu is open */
     }
 
     body.menu-open > *:not(#mobile-menu) {
       display: none;
+      /* Hide other elements when mobile menu is open */
     }
   </style>
 </head>
@@ -139,12 +139,12 @@
       <a href="#mission" class="text-gray-800 font-lato hover:text-amber-500 nav-link">About</a>
       <a href="#about" class="text-gray-800 font-lato hover:text-amber-500 nav-link">Services</a>
       <a href="#services" class="text-gray-800 font-lato hover:text-amber-500 nav-link">Projects</a>
-        <a href="#services" class="text-gray-800 font-lato hover:text-amber-500 nav-link">Clients</a>
+      <a href="#services" class="text-gray-800 font-lato hover:text-amber-500 nav-link">Clients</a>
       <a href="#contact" class="text-gray-800 font-lato bg-amber-500 border border-white rounded-lg px-4 py-1 hover:bg-amber-600">Contact</a>
     </div>
   </header>
 
-  <div id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-gold z-50">
+  <div id="mobile-menu" class="fixed top-0 left-0 w-full h-full z-50">
     <div class="p-6 flex flex-col items-center">
       <button id="close-menu-button" class="text-white text-xl mb-6">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -152,19 +152,39 @@
         </svg>
       </button>
       <div class="mobile-menu-content">
-        <a href="#mission" class="mobile-menu-item">ABOUT <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
-        <a href="#about" class="mobile-menu-item">SERVICES <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
-        <a href="#services" class="mobile-menu-item">PROJECTS <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
-        <a href="#contact" class="mobile-menu-item">CLIENTS <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
-        <a href="#contact" class="mobile-menu-item">CONTACT <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg></a>
+        <a href="#mission" class="mobile-menu-item">ABOUT
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+        <a href="#about" class="mobile-menu-item">SERVICES
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+        <a href="#services" class="mobile-menu-item">PROJECTS
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+        <a href="#contact" class="mobile-menu-item">CLIENTS
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+        <a href="#contact" class="mobile-menu-item">CONTACT
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
       </div>
     </div>
   </div>
 
   <div class="parallax">
-  
-      <img src="https://www.holland-st.com/banner.png" type="image/png">
-
+    <video class="parallax-video" autoplay loop muted playsinline poster="placeholder-image.jpg">
+      <source src="https://www.holland-st.com/B45.mp4" type="video/mp4">
+    </video>
     <div class="hero-content">
       <h1 class="text-amber-500 text-5xl md:text-7xl font-bold">Onward to Equitable Futures</h1>
       <a href="#about" class="mt-6 inline-block bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600 glow-button">Learn More</a>
@@ -173,9 +193,6 @@
 
   <section id="intro-banner" class="bg-yellow-500 py-16">
     <div class="container mx-auto flex flex-col md:flex-row items-center">
-      <div class="w-full md:w-1/2 px-6">
-        <img src="/mnt/data/banner.jpeg" alt="Person using a phone" class="rounded-lg shadow-lg">
-      </div>
       <div class="w-full md:w-1/2 px-6 text-center md:text-left mt-8 md:mt-0">
         <h1 class="text-4xl md:text-5xl font-bold text-gray-900">
           Holland <span class="text-blue-600 underline">Street!</span>
@@ -226,7 +243,7 @@
       const parallax = document.querySelector('.parallax');
       const scrollY = window.scrollY;
       if (parallax) {
-        parallax.style.transform = `translateY(${scrollY * 0.3}px)`;
+        parallax.style.backgroundPositionY = `${scrollY * 0.5}px`; // Adjust for smoother effect
       }
     });
   </script>
