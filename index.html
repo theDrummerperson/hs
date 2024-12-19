@@ -7,48 +7,35 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    /* Typography and Global Styles */
     body {
       font-family: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+      background-color: #000000;
+      color: #FFFFFF;
     }
 
     h1, h2, h3 {
       font-family: 'Montserrat', sans-serif;
     }
 
-    .hero-content {
-      text-align: center;
-      position: relative;
-      z-index: 2;
+    /* Brand Colors */
+    header, footer {
+      background-color: #4d4d4d;
     }
 
-    .hero-content h1 {
-      color: #fff;
-      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
-      animation: fadeInDown 1.5s ease;
+    a {
+      color: #fbb017;
     }
 
-    .glow-button {
-      box-shadow: 0 0 20px rgba(0, 136, 255, 0.7);
-      transition: box-shadow 0.3s ease;
+    a:hover {
+      color: #FFFFFF;
     }
 
-    .glow-button:hover {
-      animation: pulse 1s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% {
-        box-shadow: 0 0 20px rgba(0, 136, 255, 0.7);
-      }
-      50% {
-        box-shadow: 0 0 30px rgba(0, 136, 255, 1);
-      }
-    }
-
+    /* Mobile Menu */
     #mobile-menu {
       transform: translateX(100%);
       transition: transform 0.3s ease-in-out;
-      background-color: #fcb016;
+      background-color: #fbb017;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -60,15 +47,38 @@
 
     body.menu-open {
       overflow: hidden;
-      background-color: #fcb016;
+      background-color: #4d4d4d;
+    }
+
+    /* Buttons */
+    .btn {
+      background-color: #fbb017;
+      color: #000000;
+      border: 2px solid #FFFFFF;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #4d4d4d;
+      color: #FFFFFF;
+    }
+
+    /* Footer */
+    footer p {
+      opacity: 0.8;
+    }
+
+    footer p:hover {
+      opacity: 1;
+      transition: opacity 0.3s ease;
     }
   </style>
 </head>
 
-<body class="text-white">
+<body>
   <!-- Header Section -->
-  <header class="p-4 flex items-center justify-between fixed w-full z-50 backdrop-blur-md transition-colors duration-300 bg-white">
-    <button id="menu-button" class="text-gray-800 lg:hidden" aria-label="Open Menu">
+  <header class="p-4 flex items-center justify-between fixed w-full z-50 backdrop-blur-md">
+    <button id="menu-button" class="text-white lg:hidden" aria-label="Open Menu">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
       </svg>
@@ -77,28 +87,28 @@
       <img src="http://www.holland-st.com/logoj.png" alt="Holland Street Logo" class="h-16">
     </a>
     <nav class="hidden lg:flex lg:space-x-8">
-      <a href="#mission" class="text-gray-800 font-lato hover:text-amber-500 nav-link">Mission & Values</a>
-      <a href="#about" class="text-gray-800 font-lato hover:text-amber-500 nav-link">Services</a>
-      <a href="#services" class="text-gray-800 font-lato hover:text-amber-500 nav-link">Projects</a>
-      <a href="#clients" class="text-gray-800 font-lato hover:text-amber-500 nav-link">Clients</a>
-      <a href="#contact" class="text-gray-800 font-lato bg-amber-500 border border-white rounded-lg px-4 py-1 hover:bg-amber-600">Contact</a>
+      <a href="#mission" class="hover:text-fbb017">Mission & Values</a>
+      <a href="#about" class="hover:text-fbb017">Services</a>
+      <a href="#projects" class="hover:text-fbb017">Projects</a>
+      <a href="#clients" class="hover:text-fbb017">Clients</a>
+      <a href="#contact" class="bg-fbb017 text-black px-4 py-2 rounded-md hover:bg-4d4d4d hover:text-white">Contact</a>
     </nav>
   </header>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full bg-gold z-50">
+  <div id="mobile-menu" class="hidden fixed top-0 left-0 w-full h-full z-50">
     <div class="p-6 flex flex-col items-center">
       <button id="close-menu-button" class="text-white text-xl mb-6" aria-label="Close Menu">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </button>
-      <nav class="mobile-menu-content">
-        <a href="#mission" class="text-lg text-white uppercase">About</a>
-        <a href="#about" class="text-lg text-white uppercase">Services</a>
-        <a href="#projects" class="text-lg text-white uppercase">Projects</a>
-        <a href="#clients" class="text-lg text-white uppercase">Clients</a>
-        <a href="#contact" class="text-lg text-white uppercase">Contact</a>
+      <nav class="mobile-menu-content space-y-4">
+        <a href="#mission" class="text-lg text-black uppercase bg-white px-6 py-2 rounded-md">About</a>
+        <a href="#about" class="text-lg text-black uppercase bg-white px-6 py-2 rounded-md">Services</a>
+        <a href="#projects" class="text-lg text-black uppercase bg-white px-6 py-2 rounded-md">Projects</a>
+        <a href="#clients" class="text-lg text-black uppercase bg-white px-6 py-2 rounded-md">Clients</a>
+        <a href="#contact" class="text-lg text-black uppercase bg-white px-6 py-2 rounded-md">Contact</a>
       </nav>
     </div>
   </div>
@@ -108,42 +118,42 @@
     <div class="w-full h-64 lg:w-1/2 lg:h-auto">
       <video class="h-full w-full object-cover" src="https://www.holland-st.com/B45.mp4" autoplay muted loop playsinline></video>
     </div>
-    <div class="max-w-lg bg-white md:max-w-2xl md:shadow-lg md:absolute md:top-0 md:mt-48 lg:w-3/5 lg:left-0 lg:mt-20 lg:ml-20 xl:mt-24 xl:ml-12">
+    <div class="max-w-lg bg-4d4d4d text-white md:max-w-2xl md:shadow-lg md:absolute md:top-0 md:mt-48 lg:w-3/5 lg:left-0 lg:mt-20 lg:ml-20 xl:mt-24 xl:ml-12">
       <div class="flex flex-col p-12">
-        <h2 class="text-2xl font-medium uppercase text-green-800 lg:text-4xl">Winding Mountain Road</h2>
+        <h2 class="text-2xl font-medium uppercase text-fbb017 lg:text-4xl">Winding Mountain Road</h2>
         <p class="mt-4">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
-        <a href="#" class="mt-8 inline-block w-full text-center text-lg font-medium text-gray-100 bg-green-600 py-4 px-10 hover:bg-green-800 md:w-48">Read More</a>
+        <a href="#" class="btn mt-8 inline-block w-full text-center text-lg font-medium py-4 px-10">Read More</a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-100 pt-4">
-    <div class="max-w-screen-lg px-4 sm:px-6 text-gray-800 mx-auto grid md:grid-cols-4 sm:grid-cols-2">
+  <footer class="py-8">
+    <div class="max-w-screen-lg px-4 sm:px-6 mx-auto grid md:grid-cols-4 sm:grid-cols-2">
       <div class="p-5">
-        <h3 class="font-bold text-xl text-indigo-600">Company Name</h3>
+        <h3 class="font-bold text-xl text-fbb017">Holland Street</h3>
       </div>
       <div class="p-5">
-        <h4 class="text-sm uppercase text-indigo-600 font-bold">Resources</h4>
+        <h4 class="text-sm uppercase text-fbb017 font-bold">Resources</h4>
         <a class="my-3 block" href="/#">Documentation</a>
         <a class="my-3 block" href="/#">Tutorials</a>
         <a class="my-3 block" href="/#">Support</a>
       </div>
       <div class="p-5">
-        <h4 class="text-sm uppercase text-indigo-600 font-bold">Support</h4>
+        <h4 class="text-sm uppercase text-fbb017 font-bold">Support</h4>
         <a class="my-3 block" href="/#">Help Center</a>
         <a class="my-3 block" href="/#">Privacy Policy</a>
-        <a class="my-3 block" href="/#">Conditions</a>
+        <a class="my-3 block" href="/#">Terms & Conditions</a>
       </div>
       <div class="p-5">
-        <h4 class="text-sm uppercase text-indigo-600 font-bold">Contact Us</h4>
+        <h4 class="text-sm uppercase text-fbb017 font-bold">Contact Us</h4>
         <a class="my-3 block" href="/#">1234 Floor 4, San Francisco, CA</a>
-        <a class="my-3 block" href="/#">contact@company.com</a>
+        <a class="my-3 block" href="/#">contact@holland-st.com</a>
       </div>
     </div>
-    <div class="text-center py-4 border-t">
+    <div class="text-center py-4">
       <p>© 2024 Holland Street. All Rights Reserved.</p>
     </div>
   </footer>
@@ -162,17 +172,6 @@
     closeMenuButton.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
       document.body.classList.toggle('menu-open');
-    });
-
-    let timeout;
-    window.addEventListener('scroll', () => {
-      clearTimeout(timeout);
-      timeout = setTimeout(() => {
-        const parallax = document.querySelector('.parallax');
-        if (parallax) {
-          parallax.style.transform = `translateY(${window.scrollY * 0.3}px)`;
-        }
-      }, 100);
     });
   </script>
 </body>
